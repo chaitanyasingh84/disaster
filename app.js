@@ -285,32 +285,45 @@ function updateStationList() {
 
     for (const stationName in stations) {
         const station = stations[stationName];
+        
+        // Station title with latitude and longitude
         const listItem = document.createElement('li');
-        listItem.innerHTML = `<b>${stationName}</b> (Lat: ${station.lat}, Lon: ${station.lon})`;
-
+        listItem.innerHTML = `<strong>${stationName}</strong> (Lat: ${station.lat}, Lon: ${station.lon})`;
+        
+        // Commodities list
         const commoditiesList = document.createElement('ul');
+        commoditiesList.style.listStyleType = 'none'; // Remove bullets for commodities list
+
         for (const commodity in station.commodities) {
             const quantity = station.commodities[commodity];
             const commodityItem = document.createElement('li');
-            commodityItem.innerHTML = `${commodity}: ${quantity}`;
+            commodityItem.innerHTML = `<span>${commodity}: ${quantity}</span>`;
 
+            // Add and Subtract buttons for each commodity
             const increaseButton = document.createElement('button');
             increaseButton.textContent = "+";
+            increaseButton.className = "add-button";
             increaseButton.onclick = () => changeQuantity(stationName, commodity, 1);
 
             const decreaseButton = document.createElement('button');
             decreaseButton.textContent = "-";
+            decreaseButton.className = "subtract-button";
             decreaseButton.onclick = () => changeQuantity(stationName, commodity, -1);
 
+            // Add buttons to commodity item
             commodityItem.appendChild(increaseButton);
             commodityItem.appendChild(decreaseButton);
+
+            // Append commodity item to commodities list
             commoditiesList.appendChild(commodityItem);
         }
 
+        // Append commodities list to station item
         listItem.appendChild(commoditiesList);
         stationList.appendChild(listItem);
     }
 }
+
 
 // Function to change the quantity of a commodity
 function changeQuantity(stationName, commodity, amount) {
