@@ -1,5 +1,5 @@
 // Define the version number
-const version = "4.0.0";
+const version = "1.0.0";
 
 // Display the version number on the website when the page loads
 window.onload = function () {
@@ -320,15 +320,6 @@ function changeQuantity(stationName, commodity, amount) {
         stations[stationName].lon,
         stations[stationName].commodities
     );
-
-    // Toggle dropdown visibility
-document.querySelectorAll('.dropdown-toggle').forEach(button => {
-    button.addEventListener('click', function () {
-        const dropdown = button.parentElement;
-        dropdown.classList.toggle('open');
-    });
-});
-
 
     updateStationList();
     centerMapOnMarkers();
