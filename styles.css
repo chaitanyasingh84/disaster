@@ -87,14 +87,11 @@
     font-weight: bold;
 }
 
-.toolbar-section button:hover {
-    background-color: #218838;
-}
-
-/* Logout button styling to match other buttons */
+/* Logout button styling, consistent width and style */
 #logout-button {
     background-color: #FF6B6B;
     color: white;
+    margin-top: 10px;
 }
 
 #logout-button:hover {
