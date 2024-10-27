@@ -321,6 +321,15 @@ function changeQuantity(stationName, commodity, amount) {
         stations[stationName].commodities
     );
 
+    // Toggle dropdown visibility
+document.querySelectorAll('.dropdown-toggle').forEach(button => {
+    button.addEventListener('click', function () {
+        const dropdown = button.parentElement;
+        dropdown.classList.toggle('open');
+    });
+});
+
+
     updateStationList();
     centerMapOnMarkers();
 }
