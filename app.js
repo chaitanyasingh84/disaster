@@ -324,3 +324,9 @@ function changeQuantity(stationName, commodity, amount) {
     updateStationList();
     centerMapOnMarkers();
 }
+
+function logout() {
+    localStorage.removeItem('loggedIn');
+    alert("You have been logged out.");
+    window.location.href = 'logged_out.html';
+}
