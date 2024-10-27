@@ -4,14 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Resource Dashboard</title>
-    <!-- Link to Leaflet CSS for map styling -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
-    <!-- Link to your custom CSS file -->
     <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
 
-<!-- Toolbar with sections for Resource title, New Deployment, New Commodity, and Add Commodity -->
 <div id="toolbar">
     <div id="resource-title">Resource</div>
 
@@ -24,18 +21,11 @@
         <button onclick="addDeploymentStation()">Add Station</button>
     </div>
 
-    <!-- New Commodity Section -->
-    <div class="toolbar-section">
-        <p class="section-title">New Commodity</p>
-        <input type="text" id="newCommodityType" placeholder="Commodity Type" />
-        <button onclick="addCommodityType()">Add Commodity</button>
-    </div>
-
     <!-- Add Commodity to Station Section -->
     <div class="toolbar-section">
         <p class="section-title">Add Commodity</p>
         <select id="stationSelect">
-            <option value="">Station</option>
+            <option value="">Select Station</option>
         </select>
         <select id="commoditySelect">
             <option value="">Commodity</option>
@@ -43,14 +33,19 @@
         <input type="number" id="commodityQuantity" placeholder="Quantity" min="1" />
         <button onclick="addCommodity()">Add Commodity</button>
     </div>
+
+    <!-- New Commodity Section -->
+    <div class="toolbar-section">
+        <p class="section-title">New Commodity</p>
+        <input type="text" id="newCommodityType" placeholder="Commodity Type" />
+        <button onclick="addCommodityType()">Add Commodity</button>
+    </div>
 </div>
 
-<!-- Map Container -->
 <div id="map"></div>
 
-<!-- Include Leaflet JavaScript library for map functionality -->
+<!-- Scripts placed at the end of body for better loading order -->
 <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
-<!-- Include your custom JavaScript file for handling functionality -->
 <script src="app.js"></script>
 
 </body>
