@@ -4,54 +4,63 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Resource Dashboard</title>
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <!-- Version Display -->
+    <div id="versionDisplay" class="version-info"></div>
 
-<div id="toolbar">
-    <div id="left-section">
-        <div id="resource-title">Resource</div>
+    <!-- Toolbar Section -->
+    <div id="toolbar">
+        <div id="left-section">
+            <div id="resource-title">Resource Management</div>
+        </div>
+
+        <div id="right-section">
+            <!-- New Deployment Section -->
+            <div class="toolbar-section">
+                <p class="section-title">New Deployment</p>
+                <input type="text" id="stationName" placeholder="Station Name">
+                <input type="text" id="stationLat" placeholder="Latitude">
+                <input type="text" id="stationLon" placeholder="Longitude">
+                <button onclick="addDeploymentStation()">Add Station</button>
+            </div>
+
+            <!-- Add Commodity to Station Section -->
+            <div class="toolbar-section">
+                <p class="section-title">Add Commodity</p>
+                <select id="stationSelect">
+                    <option value="">Select Station</option>
+                </select>
+                <select id="commoditySelect">
+                    <option value="">Select Commodity</option>
+                </select>
+                <input type="number" id="commodityQuantity" placeholder="Quantity" min="1">
+                <button onclick="addCommodity()">Add Commodity</button>
+            </div>
+
+            <!-- New Commodity Section with Logout Button in the same column -->
+            <div class="toolbar-section">
+                <p class="section-title">New Commodity</p>
+                <input type="text" id="newCommodityType" placeholder="Commodity Type">
+                <button onclick="addCommodityType()">Add Commodity</button>
+                <button id="logout-button" onclick="logout()">Logout</button>
+            </div>
+        </div>
     </div>
 
-    <div id="right-section">
-        <!-- New Deployment Section -->
-        <div class="toolbar-section">
-            <p class="section-title">New Deployment</p>
-            <input type="text" id="stationName" placeholder="Station Name" />
-            <input type="text" id="stationLat" placeholder="Latitude" />
-            <input type="text" id="stationLon" placeholder="Longitude" />
-            <button onclick="addDeploymentStation()">Add Station</button>
-        </div>
+    <!-- Map Container -->
+    <div id="map"></div>
 
-        <!-- Add Commodity to Station Section -->
-        <div class="toolbar-section">
-            <p class="section-title">Add Commodity</p>
-            <select id="stationSelect">
-                <option value="">Select Station</option>
-            </select>
-            <select id="commoditySelect">
-                <option value="">Commodity</option>
-            </select>
-            <input type="number" id="commodityQuantity" placeholder="Quantity" min="1" />
-            <button onclick="addCommodity()">Add Commodity</button>
-        </div>
-
-        <!-- New Commodity Section with Logout Button in the same column -->
-        <div class="toolbar-section">
-            <p class="section-title">New Commodity</p>
-            <input type="text" id="newCommodityType" placeholder="Commodity Type" />
-            <button onclick="addCommodityType()">Add Commodity</button>
-            <button id="logout-button" onclick="logout()">Logout</button>
-        </div>
+    <!-- Station List (needed for updateStationList function) -->
+    <div id="station-container">
+        <h2>Station List</h2>
+        <ul id="stationList"></ul>
     </div>
-</div>
 
-<div id="map"></div>
-
-<!-- Scripts placed at the end of body for better loading order -->
-<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
-<script src="app.js"></script>
-
+    <!-- Scripts placed at the end of body for better loading order -->
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <script src="app.js"></script>
 </body>
 </html>
