@@ -1,4 +1,3 @@
-<!-- dashboard.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,34 +9,45 @@
 </head>
 <body>
 
-<h1>Deployment Dashboard</h1>
-<button onclick="logout()">Logout</button>
+<div id="map"></div>
 
-<div id="map" style="width: 100%; height: 500px;"></div>
+<div id="sidebar">
+    <button id="logout" onclick="logout()">Logout</button>
 
-<div id="controls">
-    <h3>Add Deployment Station</h3>
-    <input type="text" id="stationName" placeholder="Station Name" required />
-    <input type="text" id="stationLat" placeholder="Latitude" required />
-    <input type="text" id="stationLon" placeholder="Longitude" required />
-    <button onclick="addDeploymentStation()">Add Station</button>
+    <!-- Add Deployment Station -->
+    <div class="dropdown">
+        <button class="dropdown-toggle">Add Deployment Station</button>
+        <div class="dropdown-content">
+            <input type="text" id="stationName" placeholder="Station Name" required />
+            <input type="text" id="stationLat" placeholder="Latitude" required />
+            <input type="text" id="stationLon" placeholder="Longitude" required />
+            <button onclick="addDeploymentStation()">Add Station</button>
+        </div>
+    </div>
 
-    <h3>Manage Commodities</h3>
-    <input type="text" id="newCommodityType" placeholder="Commodity Type" />
-    <button onclick="addCommodityType()">Add Commodity Type</button>
+    <!-- Add Commodity Type -->
+    <div class="dropdown">
+        <button class="dropdown-toggle">Add Commodity Type</button>
+        <div class="dropdown-content">
+            <input type="text" id="newCommodityType" placeholder="Commodity Type" />
+            <button onclick="addCommodityType()">Add Commodity Type</button>
+        </div>
+    </div>
 
-    <h3>Add Commodity to Station</h3>
-    <label for="stationSelect">Select Station:</label>
-    <select id="stationSelect"></select>
-
-    <label for="commoditySelect">Select Commodity:</label>
-    <select id="commoditySelect"></select>
-
-    <input type="number" id="commodityQuantity" placeholder="Quantity" min="1" />
-    <button onclick="addCommodity()">Add Commodity</button>
-
-    <h3>Station List</h3>
-    <ul id="stationList"></ul>
+    <!-- Add Commodity to Station -->
+    <div class="dropdown">
+        <button class="dropdown-toggle">Add Commodity to Station</button>
+        <div class="dropdown-content">
+            <label for="stationSelect">Select Station:</label>
+            <select id="stationSelect"></select>
+            
+            <label for="commoditySelect">Select Commodity:</label>
+            <select id="commoditySelect"></select>
+            
+            <input type="number" id="commodityQuantity" placeholder="Quantity" min="1" />
+            <button onclick="addCommodity()">Add Commodity</button>
+        </div>
+    </div>
 </div>
 
 <!-- Scripts placed at the end of body for better loading order -->
