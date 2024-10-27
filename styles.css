@@ -1,64 +1,97 @@
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-}
-
+/* Make the map full-screen */
 #map {
-    margin: 20px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 0;
 }
 
-#controls {
+/* Sidebar with transparent background */
+#sidebar {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 300px;
+    background: rgba(255, 255, 255, 0.8); /* Semi-transparent white */
     padding: 20px;
-    max-width: 600px;
-    margin: 20px auto;
-    background-color: #f9f9f9;
-    border: 1px solid #ddd;
-    border-radius: 5px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
 }
 
-#login-container {
-    max-width: 300px;
-    margin: 100px auto;
-    padding: 20px;
-    border: 1px solid #ddd;
+/* Aesthetic logout button */
+#logout {
+    background-color: #FF6B6B;
+    color: white;
+    border: none;
     border-radius: 5px;
-    background-color: #f9f9f9;
-    text-align: center;
-}
-
-input, select, button {
-    display: block;
+    padding: 8px 16px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-bottom: 20px;
     width: 100%;
-    margin-bottom: 10px;
-    padding: 8px;
-    box-sizing: border-box;
 }
 
-button {
+#logout:hover {
+    background-color: #FF3B3B;
+}
+
+/* Dropdown button style */
+.dropdown {
+    margin-bottom: 20px;
+}
+
+.dropdown-toggle {
+    width: 100%;
+    padding: 10px;
     background-color: #007bff;
     color: white;
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    text-align: left;
+    font-size: 16px;
 }
 
-button:hover {
-    background-color: #0056b3;
+.dropdown-toggle:after {
+    content: " ▼";
+    float: right;
 }
 
-.commodity-tooltip {
-    background-color: white;
-    color: black;
+.dropdown-content {
+    display: none;
+    margin-top: 10px;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.dropdown-content input, 
+.dropdown-content select, 
+.dropdown-content button {
+    width: 100%;
     padding: 8px;
-    border-radius: 6px;
-    box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.2);
-    font-size: 12px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+    box-sizing: border-box;
 }
 
-.simple-icon div {
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
-    background-color: #007bff;
+.dropdown-content button {
+    background-color: #28a745;
+    color: white;
+    cursor: pointer;
+}
+
+.dropdown-content button:hover {
+    background-color: #218838;
+}
+
+/* Toggle dropdown visibility */
+.dropdown.open .dropdown-content {
+    display: block;
 }
