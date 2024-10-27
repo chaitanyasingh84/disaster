@@ -18,35 +18,36 @@
         </div>
 
         <div id="right-section">
-            <!-- New Deployment Section -->
-            <div class="toolbar-section">
-                <p class="section-title">New Deployment</p>
-                <input type="text" id="stationName" placeholder="Station Name">
-                <input type="text" id="stationLat" placeholder="Latitude">
-                <input type="text" id="stationLon" placeholder="Longitude">
-                <button onclick="addDeploymentStation()">Add Station</button>
-            </div>
+            <div class="toolbar-row">
+                <!-- New Deployment Section -->
+                <div class="toolbar-section">
+                    <p class="section-title">New Deployment</p>
+                    <input type="text" id="stationName" placeholder="Station Name">
+                    <input type="text" id="stationLat" placeholder="Latitude">
+                    <input type="text" id="stationLon" placeholder="Longitude">
+                    <button onclick="addDeploymentStation()">Add Station</button>
+                </div>
 
-            <!-- Add/Subtract Commodity to Station Section -->
-            <div class="toolbar-section">
-                <p class="section-title">Update Commodity</p>
-                <select id="stationSelect">
-                    <option value="">Select Station</option>
-                </select>
-                <select id="commoditySelect">
-                    <option value="">Select Commodity</option>
-                </select>
-                <input type="number" id="commodityQuantity" placeholder="Quantity" min="1">
-                <button class="add-button" onclick="updateCommodityQuantity(true)">Add</button>
-                <button class="subtract-button" onclick="updateCommodityQuantity(false)">Subtract</button>
-            </div>
+                <!-- Update Commodity Section -->
+                <div class="toolbar-section">
+                    <p class="section-title">Update Commodity</p>
+                    <select id="stationSelect">
+                        <option value="">Select Station</option>
+                    </select>
+                    <select id="commoditySelect">
+                        <option value="">Select Commodity</option>
+                    </select>
+                    <input type="number" id="commodityQuantity" placeholder="Quantity" min="1">
+                    <button class="add-button" onclick="updateCommodityQuantity()">Add</button>
+                </div>
 
-            <!-- New Commodity Section with Logout Button in the same column -->
-            <div class="toolbar-section">
-                <p class="section-title">New Commodity</p>
-                <input type="text" id="newCommodityType" placeholder="Commodity Type">
-                <button onclick="addCommodityType()">Add Commodity</button>
-                <button id="logout-button" onclick="logout()">Logout</button>
+                <!-- New Commodity Section -->
+                <div class="toolbar-section">
+                    <p class="section-title">New Commodity</p>
+                    <input type="text" id="newCommodityType" placeholder="Commodity Type">
+                    <button onclick="addCommodityType()">Add Commodity</button>
+                    <button id="logout-button" onclick="logout()">Logout</button>
+                </div>
             </div>
         </div>
     </div>
