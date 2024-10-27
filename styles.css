@@ -1,3 +1,98 @@
+/* General reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+/* Full-screen map styling */
+#map {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 0;
+}
+
+/* Toolbar with a semi-transparent background */
+#toolbar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: rgba(255, 255, 255, 0.8);
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    z-index: 1000;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Title */
+#resource-title {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+}
+
+/* Horizontal alignment for toolbar sections */
+.toolbar-row {
+    display: flex;
+    justify-content: flex-end;
+    gap: 20px;
+}
+
+.toolbar-section {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.section-title {
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+.toolbar-section input, 
+.toolbar-section select, 
+.toolbar-section button {
+    margin: 3px 0;
+    padding: 5px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 100%;
+}
+
+/* Add button styling */
+.add-button {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    cursor: pointer;
+    padding: 5px 10px;
+    font-weight: bold;
+}
+
+.add-button:hover {
+    background-color: #218838;
+}
+
+/* Logout button styling */
+#logout-button {
+    background-color: #FF6B6B;
+    color: white;
+    margin-top: 10px;
+}
+
+#logout-button:hover {
+    background-color: #FF3B3B;
+}
+
 /* Station list container at the bottom */
 #station-container {
     position: absolute;
@@ -23,40 +118,11 @@
     margin-bottom: 10px;
 }
 
-#stationList ul {
-    padding-left: 10px;
-}
-
-#stationList span {
-    margin-right: 10px;
+/* Version info styling */
+.version-info {
+    position: absolute;
+    top: 10px;
+    left: 20px;
+    font-size: 14px;
     font-weight: bold;
-}
-
-/* Styling for the add and subtract buttons inside station list */
-#stationList .add-button,
-#stationList .subtract-button {
-    margin-left: 5px;
-    padding: 2px 6px;
-    font-size: 10px;
-    border: none;
-    border-radius: 3px;
-    cursor: pointer;
-}
-
-#stationList .add-button {
-    background-color: #28a745;
-    color: white;
-}
-
-#stationList .add-button:hover {
-    background-color: #218838;
-}
-
-#stationList .subtract-button {
-    background-color: #ff6b6b;
-    color: white;
-}
-
-#stationList .subtract-button:hover {
-    background-color: #ff3b3b;
 }
