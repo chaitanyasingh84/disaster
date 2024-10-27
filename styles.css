@@ -49,6 +49,7 @@
     flex: 2;
     display: flex;
     justify-content: flex-end;
+    align-items: flex-start;
     gap: 20px;
 }
 
@@ -74,7 +75,7 @@
     font-size: 14px;
     border: 1px solid #ccc;
     border-radius: 5px;
-    width: 100%;
+    width: 100%; /* Ensures uniform width */
 }
 
 .toolbar-section button {
