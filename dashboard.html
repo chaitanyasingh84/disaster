@@ -1,47 +1,56 @@
-<!-- dashboard.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Deployment Dashboard</title>
+    <title>Resource Dashboard</title>
+    <!-- Link to Leaflet CSS for map styling -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <!-- Link to your custom CSS file -->
     <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
 
-<h1>Deployment Dashboard</h1>
-<button onclick="logout()">Logout</button>
+<!-- Toolbar with sections for Resource title, New Deployment, New Commodity, and Add Commodity -->
+<div id="toolbar">
+    <div id="resource-title">Resource</div>
 
-<div id="map" style="width: 100%; height: 500px;"></div>
+    <!-- New Deployment Section -->
+    <div class="toolbar-section">
+        <p class="section-title">New Deployment</p>
+        <input type="text" id="stationName" placeholder="Station Name" />
+        <input type="text" id="stationLat" placeholder="Latitude" />
+        <input type="text" id="stationLon" placeholder="Longitude" />
+        <button onclick="addDeploymentStation()">Add Station</button>
+    </div>
 
-<div id="controls">
-    <h3>Add Deployment Station</h3>
-    <input type="text" id="stationName" placeholder="Station Name" required />
-    <input type="text" id="stationLat" placeholder="Latitude" required />
-    <input type="text" id="stationLon" placeholder="Longitude" required />
-    <button onclick="addDeploymentStation()">Add Station</button>
+    <!-- New Commodity Section -->
+    <div class="toolbar-section">
+        <p class="section-title">New Commodity</p>
+        <input type="text" id="newCommodityType" placeholder="Commodity Type" />
+        <button onclick="addCommodityType()">Add Commodity</button>
+    </div>
 
-    <h3>Manage Commodities</h3>
-    <input type="text" id="newCommodityType" placeholder="Commodity Type" />
-    <button onclick="addCommodityType()">Add Commodity Type</button>
-
-    <h3>Add Commodity to Station</h3>
-    <label for="stationSelect">Select Station:</label>
-    <select id="stationSelect"></select>
-
-    <label for="commoditySelect">Select Commodity:</label>
-    <select id="commoditySelect"></select>
-
-    <input type="number" id="commodityQuantity" placeholder="Quantity" min="1" />
-    <button onclick="addCommodity()">Add Commodity</button>
-
-    <h3>Station List</h3>
-    <ul id="stationList"></ul>
+    <!-- Add Commodity to Station Section -->
+    <div class="toolbar-section">
+        <p class="section-title">Add Commodity</p>
+        <select id="stationSelect">
+            <option value="">Station</option>
+        </select>
+        <select id="commoditySelect">
+            <option value="">Commodity</option>
+        </select>
+        <input type="number" id="commodityQuantity" placeholder="Quantity" min="1" />
+        <button onclick="addCommodity()">Add Commodity</button>
+    </div>
 </div>
 
-<!-- Scripts placed at the end of body for better loading order -->
+<!-- Map Container -->
+<div id="map"></div>
+
+<!-- Include Leaflet JavaScript library for map functionality -->
 <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+<!-- Include your custom JavaScript file for handling functionality -->
 <script src="app.js"></script>
 
 </body>
