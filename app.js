@@ -243,8 +243,8 @@ function addCommodityType() {
     document.getElementById('newCommodityType').value = '';
 }
 
-// Function to add a commodity to a station
-function addCommodity() {
+// Function to add or subtract a commodity quantity at a station
+function updateCommodityQuantity(isAdding) {
     const stationName = document.getElementById('stationSelect').value;
     const commodityType = document.getElementById('commoditySelect').value;
     const quantity = parseInt(document.getElementById('commodityQuantity').value);
@@ -254,8 +254,15 @@ function addCommodity() {
         return;
     }
 
-    stations[stationName].commodities[commodityType] = quantity;
+    if (!stations[stationName].commodities[commodityType]) {
+        stations[stationName].commodities[commodityType] = 0;
+    }
+    stations[stationName].commodities[commodityType] += isAdding ? quantity : -quantity;
+    if (stations[stationName].commodities[commodityType] < 0) {
+        stations[stationName].commodities[commodityType] = 0;
+    }
     saveStations();
+
     addMarkerToMap(stationName, stations[stationName].lat, stations[stationName].lon, stations[stationName].commodities);
     updateStationList();
     centerMapOnMarkers();
