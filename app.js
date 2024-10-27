@@ -9,6 +9,10 @@ window.onload = function () {
     }
 };
 
+// Basic admin credentials
+const adminUsername = 'admin';
+const adminPassword = 'password';
+
 // Data storage
 let stations = loadStations();
 let commodityTypes = loadCommodityTypes();
@@ -41,10 +45,6 @@ function loadCommodityTypes() {
     return savedTypes ? JSON.parse(savedTypes) : [];
 }
 
-// Basic admin credentials
-const adminUsername = 'admin';
-const adminPassword = 'password';
-
 // Login function
 function login() {
     const username = document.getElementById('username').value;
@@ -73,7 +73,7 @@ if (window.location.pathname.includes('dashboard.html')) {
 
 // Initialize map only if on the dashboard page and the map element exists
 let map;
-window.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", () => {
     if (document.getElementById('map')) {
         map = L.map('map').setView([20.5937, 78.9629], 5);
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -267,7 +267,14 @@ function addCommodity() {
 // Function to update station list display
 function updateStationList() {
     const stationList = document.getElementById('stationList');
-    stationList.innerHTML = '';
+    
+    // Check if stationList exists
+    if (!stationList) {
+        console.error("Station list element not found in the DOM.");
+        return; // Exit the function if the element is missing
+    }
+
+    stationList.innerHTML = ''; // Clear the list
 
     for (const stationName in stations) {
         const station = stations[stationName];
@@ -323,10 +330,4 @@ function changeQuantity(stationName, commodity, amount) {
 
     updateStationList();
     centerMapOnMarkers();
-}
-
-function logout() {
-    localStorage.removeItem('loggedIn');
-    alert("You have been logged out.");
-    window.location.href = 'logged_out.html';
 }
