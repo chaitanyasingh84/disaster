@@ -1,4 +1,4 @@
-/* General Reset */
+/* General reset */
 * {
     margin: 0;
     padding: 0;
@@ -22,7 +22,7 @@
     top: 0;
     left: 0;
     right: 0;
-    background: rgba(255, 255, 255, 0.8); /* Semi-transparent white */
+    background: rgba(255, 255, 255, 0.8);
     padding: 10px 20px;
     display: flex;
     justify-content: space-between;
@@ -31,29 +31,13 @@
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-/* Left section for title */
-#left-section {
-    flex: 1;
-    display: flex;
-    align-items: center;
-}
-
+/* Title and toolbar sections */
 #resource-title {
     font-size: 24px;
     font-weight: bold;
     color: #333;
 }
 
-/* Right section for toolbar items */
-#right-section {
-    flex: 2;
-    display: flex;
-    justify-content: flex-end;
-    align-items: flex-start;
-    gap: 20px;
-}
-
-/* Toolbar section styling */
 .toolbar-section {
     display: flex;
     flex-direction: column;
@@ -66,7 +50,6 @@
     margin-bottom: 5px;
 }
 
-/* Input, select, and button styling */
 .toolbar-section input, 
 .toolbar-section select, 
 .toolbar-section button {
@@ -75,19 +58,38 @@
     font-size: 14px;
     border: 1px solid #ccc;
     border-radius: 5px;
-    width: 100%; /* Ensures uniform width */
+    width: 100%;
 }
 
-.toolbar-section button {
+/* Add and Subtract buttons styling */
+.add-button {
     background-color: #28a745;
     color: white;
-    cursor: pointer;
     border: none;
+    cursor: pointer;
     padding: 5px 10px;
     font-weight: bold;
 }
 
-/* Logout button styling, consistent width and style */
+.add-button:hover {
+    background-color: #218838;
+}
+
+.subtract-button {
+    background-color: #ff6b6b;
+    color: white;
+    border: none;
+    cursor: pointer;
+    padding: 5px 10px;
+    font-weight: bold;
+    margin-top: 5px;
+}
+
+.subtract-button:hover {
+    background-color: #ff3b3b;
+}
+
+/* Logout button styling */
 #logout-button {
     background-color: #FF6B6B;
     color: white;
@@ -98,18 +100,72 @@
     background-color: #FF3B3B;
 }
 
-/* Media query for small screens: stack sections vertically */
-@media (max-width: 768px) {
-    #toolbar {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-    #right-section {
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-    }
-    .toolbar-section {
-        width: 100%;
-    }
+/* Station list container */
+#station-container {
+    position: absolute;
+    top: 150px;
+    right: 20px;
+    width: 200px;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+}
+
+#stationList {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* Login page styling */
+.login-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: #f2f2f2;
+}
+
+.login-container h2 {
+    margin-bottom: 20px;
+}
+
+.login-container input {
+    margin: 5px 0;
+    padding: 10px;
+    width: 200px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.login-container button {
+    padding: 10px 20px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.login-container button:hover {
+    background-color: #218838;
+}
+
+.error {
+    color: red;
+    font-size: 14px;
+    margin-top: 10px;
+}
+
+/* Version info styling */
+.version-info {
+    position: absolute;
+    top: 10px;
+    left: 20px;
+    font-size: 14px;
+    font-weight: bold;
 }
